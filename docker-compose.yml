@@ -1,0 +1,18 @@
+version: '3'
+services:
+  redis:
+    image: "bitnami/redis:latest"
+    platform: linux/amd64
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data:/data
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+
+  adminer:
+    image: adminer
+    platform: linux/amd64
+    restart: always
+    ports:
+      - 8001:8080  # Adminer'a disaridan erisim saglar.
